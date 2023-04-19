@@ -1,0 +1,416 @@
+%-------------------------
+% Resume in Latex
+% Author : Sourabh Bajaj + some brand new features from Mary Feofanova + some changes by Muhammadjon Hakimov + some changes by Arslan Shakhnazarov
+% Sourabh's: https://github.com/sb2nov/resume
+% Mary's: https://github.com/mary3000/resume
+% Muhammadjon's: https://github.com/mrhakimov/resume
+% Arslan's: https://github.com/shakhnazarov/resume
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,10pt]{article}
+
+\usepackage{makecell}
+\usepackage[link=off]{phonenumbers}
+\usepackage{ragged2e}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[pdftex]{hyperref}
+\usepackage{fancyhdr}
+
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\usepackage[top=0.25in, bottom=0.2in, left=0.4in, right=0.4in]{geometry}
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.0in}
+\addtolength{\evensidemargin}{-0.0in}
+\addtolength{\textwidth}{0in}
+\addtolength{\topmargin}{0pt}
+\addtolength{\textheight}{0.0in}
+
+\urlstyle{same}
+
+\usepackage{xcolor} % http://ctan.org/pkg/xcolor
+\usepackage{hyperref} % http://ctan.org/pkg/hyperref
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue!50!red,
+  linkbordercolor=red,
+  urlcolor=black!70!black,
+  pdfnewwindow=true
+}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-10pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-7pt}]
+
+%-------------------------
+% Custom commands
+\def \ifempty#1{\def\temp{#1} \ifx\temp\empty }
+
+\newcommand{\resumeItem}[2]{
+  \item\small{
+  	\ifempty{#1}#2\else\textbf{#1}{: #2 \vspace{-2pt}}\fi
+  }
+}
+
+\usepackage[dvipsnames]{xcolor}
+\definecolor{mygray}{gray}{0}
+\usepackage{fancybox}
+
+\usepackage{lmodern}
+\usepackage{tikz}
+
+% Style definition
+\tikzset{rndblock/.style={rounded corners,rectangle,draw,outer sep=0pt}}
+
+% Command Definition
+% 1 optional to customize the aspect, 2 mandatory: text to be framed
+\newcommand{\tframed}[2][]{\tikz[baseline=(h.base)]\node[rndblock,#1] (h) {\color{black}{#2}};}
+
+\newcommand*{\mystrut}{\rule[-0.2\baselineskip]{0pt}{0.8\baselineskip}}
+\newcommand{\skill}[1]{\tframed[lightgray]{\mystrut#1}}
+
+% Add level of nesting and margin from left
+\newcommand{\resumeSubheading}[4]{
+  \item
+    \begin{tabular*}{0.988\textwidth}{l@{\extracolsep{\fill}}r}
+      \vspace{-12pt}\textbf{#3} & \textcolor{mygray}{\textit{\small #2}} \\
+      \textit{\small#1} & \textcolor{mygray}{\textit{\small #4}} \\
+    \end{tabular*}\vspace{-5pt}
+}
+
+% Add specific education type of dual degree
+\newcommand{\resumeEduSubheading}[6]{
+  \vspace{3pt}
+  \item
+    \begin{tabular*}{0.988\textwidth}{l@{\extracolsep{\fill}}r}
+      \vspace{0pt} \textbf{#1}  & \textcolor{mygray}{\small #2} \\
+      \vspace{2pt} \textbf{#3}  & \textcolor{mygray}{\small #4} \\
+      \textit{#5} & \textcolor{mygray}{\textit{\small #6}} \\
+      
+    \end{tabular*}\vspace{3pt}
+}
+
+% Add additional education
+\newcommand{\resumeExtraEduSubheading}[4]{
+  \vspace{3pt}
+  \item
+    \begin{tabular*}{0.988\textwidth}{l@{\extracolsep{\fill}}r}
+      \vspace{2pt} \textbf{#1}  & \textcolor{mygray}{\small #2} \\
+      \textit{#3} & \textcolor{mygray}{\textit{\small #4}} \\
+      
+    \end{tabular*}\vspace{2pt}
+}
+
+% Add job without skills
+\newcommand{\resumeJobNoSkillSubheading}[4]{
+  \vspace{3pt}
+  \item
+    \begin{tabular*}{0.988\textwidth}{l@{\extracolsep{\fill}}r}
+      \vspace{2pt} \textbf{#1}  & \textcolor{mygray}{\small #2} \\
+      \textit{#3} & \textcolor{mygray}{\textit{\small #4}} \\
+      
+    \end{tabular*}\vspace{2pt}
+}
+
+% Add position within the same company without skills
+\newcommand{\resumeExtraJobNoSkillSubheading}[2]{
+    \vspace{-4pt}
+  \item
+    \begin{tabular*}{0.988\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{#1} & \textcolor{mygray}{\textit{\small #2}} \\
+      
+    \end{tabular*}\vspace{2pt}
+}
+
+
+% Add extracurricular
+\newcommand{\resumeExtracurrSubheading}[2]{
+  \vspace{3pt}
+  \item
+    \begin{tabular*}{0.988\textwidth}{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & \textcolor{mygray}{\textit{\small #2}} \\
+      
+    \end{tabular*}\vspace{0pt}
+}
+
+\newcommand{\resumeExpSubheading}[5]{
+  \vspace{3pt}
+  \item
+    \begin{tabular*}{0.988\textwidth}{l@{\extracolsep{\fill}}r}
+      \vspace{2pt} \textbf{#1}  & \textcolor{mygray}{\small #2} \\
+      \textit{#3} & \textcolor{mygray}{\textit{\small #4}} \\
+      {\scriptsize#5}
+    \end{tabular*}\vspace{3pt}
+}
+
+\newcommand{\resumeExpJointSubheading}[5]{
+  \vspace{-14pt}
+  \item
+    \begin{tabular*}{0.988\textwidth}{l@{\extracolsep{\fill}}r}
+      \vspace{2pt} \textbf{#1}  & \textcolor{mygray}{\small #2} \\
+      \textit{#3} & \textcolor{mygray}{\textit{\small #4}} \\
+      {\scriptsize#5}
+    \end{tabular*}\vspace{3pt}
+}
+
+\newcommand{\resumeProjSubheading}[5]{
+  \vspace{-10pt}\item
+    \begin{tabular*}{0.988\textwidth}{l@{\extracolsep{\fill}}r}
+      \vspace{2pt} \textbf{#1}  & \textcolor{mygray}{\small #2} \\
+      \textbf{#3} & \textcolor{mygray}{\textit{\small #4}} \\
+      {\scriptsize#5}
+    \end{tabular*}\vspace{3pt}
+}
+
+\newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}\vspace{-4pt}}
+
+\renewcommand{\labelitemii}{$\circ$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.08in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=0.2in]}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+\usepackage{changepage}
+\newcommand{\resumeDesc}[1]{\begin{adjustwidth}{5pt}{0pt}\vspace{-2pt}{#1}\end{adjustwidth}}
+
+\newcommand{\ExternalLink}{
+    \tikz[x=1.2ex, y=1.2ex, baseline=-0.05ex]{
+        \begin{scope}[x=1ex, y=1ex]
+            \clip (-0.1,-0.1) 
+                --++ (-0, 1.2) 
+                --++ (0.6, 0) 
+                --++ (0, -0.6) 
+                --++ (0.6, 0) 
+                --++ (0, -1);
+            \path[draw, 
+                line width = 0.5, 
+                rounded corners=0.5] 
+                (0,0) rectangle (1,1);
+        \end{scope}
+        \path[draw, line width = 0.5] (0.5, 0.5) 
+            -- (1, 1);
+        \path[draw, line width = 0.5] (0.6, 1) 
+            -- (1, 1) -- (1, 0.6);
+        }
+    }
+    
+\definecolor{Blue1}{HTML}{4D4EDC}
+\newcommand{\MYhref}[3][Blue1]{\href{#2}{\color{#1}{#3}}}
+
+%-------------------------------------------
+%%%%%%  CV STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+%----------HEADING-----------------
+\begin{center}\textbf{\Large Arslan Shakhnazarov}\end{center}
+\vspace{-11pt}
+\begin{center}
+Email: \MYhref{mailto:shakhnazarov.ar@gmail.com}{shakhnazarov.ar@gmail.com} \quad
+LinkedIn: \MYhref{https://www.linkedin.com/in/ashakhnazarov}{ashakhnazarov} \quad
+GitHub: \MYhref{https://www.github.com/shakhnazarov}{shakhnazarov} \quad
+Telegram: \MYhref{https://t.me/arshakhnazarov}{arshakhnazarov}
+\end{center}
+
+%-----------SUMMARY-----------------
+% \vspace{-10pt}
+% \section{Summary}
+% \resumeSubHeadingListStart
+% \justifying
+% Software Engineer with 2+ years of experience specializing in backend development in cloud infrastructure and distributed systems. Looking for Software Engineer positions, passionate about distributed systems and large-scale infrastructure.
+% \resumeSubHeadingListEnd
+
+%-----------EDUCATION-----------------
+%\vspace{-5pt}
+\section{Education}
+\justifying
+  \resumeSubHeadingListStart
+   \resumeEduSubheading
+      {\href{https://www.hse.ru/en/}{National Research University Higher School of Economics (NRU HSE)\ExternalLink}}{Moscow, Russia}
+      {\href{https://www.lse.ac.uk/study-at-lse/Undergraduate/degree-programmes-2024/BSc-Mathematics-and-Economics}{University of London (under academic direction of London School of Economics)\ExternalLink}}{Remote, UK}      {\href{https://www.hse.ru/en/ba/icef/}{Dual degree BSc program, Mathematics and Economics\ExternalLink}}
+      {Sep 2019 --- Jun 2023}
+      \vspace{6pt}
+      \newline{\textbf{Relevant Coursework:} Programming and Data Processing, Principles of Accounting, Statistics, Python for Data Analysis, Principles of Banking and Finance, Econometrics, Mathematics of Finance and Valuation, Machine Learning}
+      \vspace{2pt}
+      \newline{\textbf{Academic Excellence:} ranked \#6 out of 300 students (2020), Merit-based scholarship covering 75\% of tuition fees, “ICEF Academia” program winner, CFA Program Scholarship (2021)}
+      \vspace{2pt}
+      \newline{\textbf{Activities:} Member of Academic Student Union, Tutor for Freshmen, Buddy for International Students in Erasmus Student Network (ESN), Member of the Jury in Moscow Olympiad of Pupils in Economics, Volunteer in Moscow Mathematics Olympiad}
+      
+    \resumeExtraEduSubheading
+      {\href{https://www.lse.ac.uk/}{The London School of Economics and Political Science (LSE)\ExternalLink}}{London, UK}
+      {\href{https://www.lse.ac.uk/study-at-lse/summer-schools/summer-school/courses/business-and-management/mg209}{Summer School, MG209: Bargaining and Negotiation\ExternalLink}}{Jun 2021 --- Jul 2021}
+      \resumeDesc{
+      \begin{itemize}
+        \item Gained experience in distributive and integrative negotiation, biases, ethics, and culture in negotiations 
+          \item One of only 8 students selected from HSE to receive a merit-based scholarship that covered 100\% of my expenses
+      \end{itemize}}
+        
+    \resumeExtraEduSubheading
+      {\href{http://www.nara-wu.ac.jp/nwu/en/}{Nara Women's University\ExternalLink}}{Nara, Japan}
+      {\href{https://ssp.jst.go.jp/en/}{Japan-Asia Youth Exchange program in Science (Japan Science and Technology Agency)\ExternalLink}}{Sep 2018}
+      \resumeDesc{
+      \begin{itemize}
+          \item Biology and Information Technology track: statistical modeling of the population’s reaction to various pandemic outbreaks
+          \item Ranked \#1 out of 900 Uzbek students, Merit-based scholarship from Japanese government covering 100\% of expenses
+      \end{itemize}}
+    % \resumeExpSubheading
+    %   {\href{http://www.nara-wu.ac.jp/nwu/en/}{Nara Women's University \ExternalLink}}{Nara, Japan}{Japan-Asia Youth Exchange program in Science (Japan Science & Technology Agency)}{Sep 2018}
+    %   {}
+    %   \resumeDesc{
+    %   \begin{itemize}
+    %       \item Biology and Information Technology track: statistical modeling of the population’s reaction to various pandemic outbreaks
+    %       \item Ranked \#1 out of 900 Uzbek students, Merit-based scholarship from Japanese government covering 100\% of expenses
+    %   \end{itemize}}
+  \resumeSubHeadingListEnd
+
+%-----------EXPERIENCE-----------------
+\vspace{-5pt}
+\section{Experience}
+\justifying
+  \resumeSubHeadingListStart
+   \resumeJobNoSkillSubheading
+      {\href{https://www.tinkoff.ru/}{Tinkoff -- Leading Digital Bank\ExternalLink}}{Moscow, Russia}
+      {Analyst / Product Manager}{Sep 2021 --- Mar 2022}
+      \resumeDesc{
+      \begin{itemize}
+          \item  Reorganized the incoming mail processing operation process, reducing the manual workload from 24 million tasks per year to 10 million, resulting in annual cost savings of \$800,000
+          \item  Optimized the intellectually challenging foreclosure process, resulting in annual cost savings of \$530,000
+          \item Conducted more than 40 meetings with line-of-service owners, effectively managing their business expectations and communicating the product vision using data analysis and performance metrics
+
+      \end{itemize}}
+
+    \resumeExtraJobNoSkillSubheading
+      {Junior Analyst}{Nov 2020 --- Aug 2021}
+      \resumeDesc{
+      \begin{itemize}
+          \item Delivered multiple product solutions in collaboration with development teams operating under Kanban and Scrum
+          \item Conducted A/B tests on employee performance data sets, identifying areas for improvement in operational efficiency
+          \item Initiated the development and integration of Computer Vision algorithms, employing advanced NLP and OCR techniques resulting in 92\% key metric of document classification
+          \item  Optimized the dispatch of 1.9 million paper letters by integrating IT systems, resulting in 90\% cost reduction
+      \end{itemize}}
+    % \resumeExpSubheading
+    %   {\href{https://disney.fandom.com/wiki/Wonderland}{Shchmoogle --- largest technology company in Wonderland \ExternalLink}}{Tamarama, Wonderland}
+    %   {Software Engineer at Advertising Agency Accounts Team}{Jul 2021 --- Mar 2022}
+    %   {\skill{Go} \skill{Python} \skill{Docker} \skill{asyncio} \skill{RabbitMQ} \skill{Celery} \skill{Databases}}
+    %   \resumeDesc{
+    %   \begin{itemize}
+    %       \item Avoided unnecessary service re-deployments and reduced the time of metadata editing for the revenue calculators a few times by migrating all metadata from raw strings in the code to the real-time config
+    %       \item Provided timely updates to access rights by automating the process of manual access rights granting and revoking by implementing \underline{Celery} task that periodically replicates changes from different sources to the local database
+    %   \end{itemize}}
+    
+    % \resumeExpJointSubheading
+    %   {}{}
+    %   {Software Engineer Intern at Data Transfer Team}{Nov 2020 --- May 2021}
+    %   {\skill{Go} \skill{C++} \skill{SQL} \skill{Databases}}
+    %   \resumeDesc{
+    %   \begin{itemize}
+    %       \item Implemented client and resource management side functionality to set limits on RAM for end-to-end transfers that allowed to manage resources more flexibly, \textbf{saved 800 GB of RAM usage} in total, and helped to survive the data center outage
+    %       \item Delivered a tooltip to help users set the optimal limits for new transfers by gathering data over the past months, parsing it and calculating the average RAM usage for all types of transfers
+    %       \item Added new types of transfer sources and destinations by implementing a driver for the local \underline{MapReduce} system in \underline{Golang}
+    %   \end{itemize}}
+  \resumeSubHeadingListEnd
+
+%-----------VOLUNTEERING-----------------
+\vspace{-5pt}
+\section{Extracurricular Activities}
+\justifying
+  \resumeSubHeadingListStart
+   \resumeExtracurrSubheading
+      {Higher School of Economics,  {\href{https://www.hse.ru/en/edu/courses/749550035}{Teaching Assistant in Econometrics\ExternalLink}}}{Sep 2022 --- Dec 2022}
+      \resumeDesc{
+      \begin{itemize}
+          \item Distributed workload between other teaching assistants within the course in the Faculty of Computer Science
+          \item Graded student assignments and worked with the course instructor to ensure course materials were up-to-date and relevant
+      \end{itemize}}
+      
+   \vspace{-5pt}
+   \resumeExtracurrSubheading
+      {\href{https://dano.hse.ru/}{Data Analysis National Olympiad, Senior Mentor\ExternalLink}}{Aug 2021 --- Dec 2022}
+      \resumeDesc{
+      \begin{itemize}
+          \item Managed a team of 4 mentors who each oversaw 2-3 teams of contestants in the competition (2022)
+          \item {\href{https://dano.hse.ru/news/716110716.html}{Provided feedback and guidance to 3 teams of contestants, helping them to develop strong research questions, conduct effective data analysis, and present their findings in a clear and compelling manner (2021)\ExternalLink}}
+      \end{itemize}}
+      
+    \vspace{-5pt}
+    \resumeExtracurrSubheading
+      {Competitions}{}
+      \resumeDesc{
+      \begin{itemize}
+        \item {\href{https://github.com/shakhnazarov/Study_Projects/tree/master/Data_Hack_2023}{HSE Data Science Hack (2023) – 4th out of 50+ teams, used NLP, TensorFlow, BERT, FCNN to predict sentiments\ExternalLink}}
+          \item Student Olympiad Higher League in Applied Mathematics (2022) – 5th place out of 500+ students
+          \item Raiffeisen hackathon in Data Science (2021) – top 100 teams out of 400+, used XGBoost and CatBoost machine learning algorithms to predict commercial property prices
+      \end{itemize}}
+  \resumeSubHeadingListEnd
+
+
+%--------PROGRAMMING SKILLS------------
+\section{Skills and Interests}
+ \resumeSubHeadingListStart
+ \begin{tabular}{ll}
+\textbf{Programming Languages:} & \quad Python (Pandas, NumPy, Scikit-learn), SQL (Postgres), C++ (basic), R, Tableau \\
+\textbf{Languages:} & \quad Russian (native), English (fluent), Uzbek (conversational),  German (elementary) \\
+\textbf{Tests:} & \quad  CFA Level I Passed, IELTS 8.0/9.0, SAT Physics 800/800, SAT Math 2 800/800 \\
+\textbf{Interests:} & \quad  Guitar (Fingerstyle Arrangements), Science, Technology
+\end{tabular}
+ \resumeSubHeadingListEnd
+
+
+%-----------PROJECTS-----------------
+% \section{Projects}
+%   \resumeSubHeadingListStart
+%       \resumeProjSubheading
+%       {}{}{\href{https://scholar.colorado.edu/downloads/0p0967381}{Trending and relevant hashtag finder for TikTok and Instagram \ExternalLink}}{}
+%       {\skill{Kotlin} \skill{Spring} \skill{Android SDK} \skill{PostgreSQL}}
+%           \resumeDesc{
+%           \begin{itemize}
+%               \item Created the application with the \underline{REST API} server using \underline{Spring} for searching relevant TikTok and Instagram hashtags
+%               \item Optimized search accuracy from \textbf{74.1}\% to \textbf{87.9}\% using the chi-square metric for feature selection
+%           \end{itemize}
+%           }
+          
+%     \resumeProjSubheading
+%       {}{}{English text simplifier}{}
+%       {\skill{Kotlin} \skill{Ktor} \skill{MongoDB} \skill{Redis}}
+%           \resumeDesc{
+%           \begin{itemize}
+%               \item Developed a web application for simplifying English texts by replacing complex words with synonyms using \underline{Ktor}
+%               \item Sped up the application \textbf{by 2 times} by caching frequently used words in \underline{Redis} after proper comparison analysis
+%           \end{itemize}
+%           }
+%   \resumeSubHeadingListEnd
+
+
+\end{document}
+Footer
+© 2023 GitHub, Inc.
+Footer navigation
+Terms
+Privacy
+Security
+Status
+Docs
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
